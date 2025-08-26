@@ -1,0 +1,155 @@
+/* homepage.css */
+
+body,
+html,
+.homepage {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2a4ca3;
+  color: #fff;
+  padding: 10px 30px;
+  border-radius: 10px;
+}
+.logo {
+  src: url(/src/assets/Original\ Logo.png);
+  font-size: 24px;
+  font-weight: bold;
+}
+.logo span {
+  color: #4fd1c5;
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.currency {
+  margin-right: 15px;
+  cursor: pointer;
+}
+.login,
+.register {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+.register {
+  background: #4fd1c5;
+  padding: 5px 15px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+/* Hero */
+.hero {
+  background: url("/public/Intersection.png") center/cover no-repeat;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search-bar {
+  display: flex;
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 10px;
+}
+.search-bar .field {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+.search-bar .field span {
+  font-weight: bold;
+}
+.search-btn {
+  background: #ff7f00;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* Partners */
+.partners {
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  background: #fff;
+}
+.partners-box {
+  text-align: center;
+  width: 45%;
+}
+.airlines-logos img,
+.payment-logos img {
+  max-width: 100%;
+}
+
+/* Why Book Section */
+.why-book {
+  background: #2a4ca3;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
+}
+.why-grid {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+.why-item {
+  width: 30%;
+}
+.why-item .icon {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+/* Footer */
+.footer {
+  background: #f1f1f1;
+  padding: 40px 20px;
+  text-align: center;
+}
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+.footer-content h4 {
+  margin-bottom: 10px;
+}
+.footer-content ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-content li {
+  margin: 5px 0;
+}
+.socials {
+  margin: 10px 0;
+}
+.socials i {
+  margin: 0 5px;
+  font-size: 20px;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #555;
+}
