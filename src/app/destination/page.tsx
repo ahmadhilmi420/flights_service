@@ -5,6 +5,7 @@ import Navbar from "../ui/navbar";
 import Header from "../ui/header";
 import Footer from "../ui/footer";
 import CardTiket from "../ui/cardticket";
+import DetailTiket from "../ui/detailticket";
 
 export default function Destination() {
   return (
@@ -16,6 +17,7 @@ export default function Destination() {
       </div>
       <FilterBar />
       {/* <NoResult /> */}
+      <DetailTiket />
       <CardTiket />
       <CardTiket />
       <CardTiket />

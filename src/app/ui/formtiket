@@ -1,0 +1,84 @@
+"use client";
+
+import { useState } from "react";
+
+export default function FormPemesanan() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    phoneCode: "+62",
+    phone: "",
+    email: "",
+  });
+
+  //   const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setErrors((prev) => ({ ...prev, [name]: "" })); // clear error on change
+  };
+
+  const validate = () => {
+    let newErrors = {};
+    if (!formData.phone) {
+      newErrors.phone = "No. Handphone wajib diisi.";
+    } else if (!/^\d+$/.test(formData.phone)) {
+      newErrors.phone = "No. Handphone harus berupa angka.";
+    }
+
+    if (!formData.email) {
+      newErrors.email = "Email wajib diisi.";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Format email tidak valid.";
+    }
+
+    return newErrors;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      console.log("Data Pemesan:", formData);
+      alert("Data Pemesan tersimpan!");
+    }
+  };
+
+  return (
+    <section className="mb-8">
+      <h2 className="font-bold text-lg mb-3">Data Pemesan</h2>
+      <div className="border rounded-md p-4">
+        <h3 className="font-semibold mb-3">Data Pemesan ( untuk E-Tiket/Voucher )</h3>
+        <form onSubmit={handleSubmit} className="space-y-3">
+          <div>
+            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} placeholder="Nama Depan & Tengah (Jika Ada)" className="border rounded w-full p-2" />
+          </div>
+          <div>
+            <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} placeholder="Nama Belakang" className="border rounded w-full p-2" />
+          </div>
+          <div>
+            <div className="flex gap-2">
+              <select name="phoneCode" value={formData.phoneCode} onChange={handleChange} className="border rounded p-2">
+                <option value="+62">+62</option>
+                <option value="+60">+60</option>
+                <option value="+65">+65</option>
+              </select>
+              <input type="text" name="phone" value={formData.phone} onChange={handleChange} placeholder="No. Handphone" className="border rounded w-full p-2" />
+            </div>
+            {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+          </div>
+          <div>
+            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="E-mail" className="border rounded w-full p-2" />
+            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+          </div>
+          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded">
+            Simpan
+          </button>
+        </form>
+      </div>
+    </section>
+  );
+}
